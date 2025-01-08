@@ -43,11 +43,14 @@ SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Except
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//            .oauth2Login(oauthConfig->oauthConfig
-//                    .failureUrl("/login?error=true")
-//                    .successHandler(oauth2SuccessHandler))
+/*
+ Uncomment it when we have to use Auth 2.0 and add client id in application.yml
 
+                .oauth2Login(oauthConfig->oauthConfig
+                    .failureUrl("/login?error=true")
+                    .successHandler(oauth2SuccessHandler))
 
+*/
             ;
     return httpSecurity.build();
 }
